@@ -156,3 +156,10 @@ C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\obj\Debug\63CNTT5_N1.csproj.Core
 C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\obj\Debug\63CNTT5_N1.csproj.CopyComplete
 C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\obj\Debug\63CNTT5_N1.dll
 C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\obj\Debug\63CNTT5_N1.pdb
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\EntityFramework.dll
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\EntityFramework.SqlServer.dll
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\MyClass.dll
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\MyClass.pdb
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\MyClass.dll.config
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\EntityFramework.xml
+C:\Users\adminis\Desktop\PTUDW\PTUDW\63CNTT5_N1\bin\EntityFramework.SqlServer.xml
