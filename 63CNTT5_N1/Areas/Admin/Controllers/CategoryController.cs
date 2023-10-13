@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyClass.DAO;
 using MyClass.Model;
+using UDW.Library;
 
 namespace _63CNTT5_N1.Areas.Admin.Controllers
 {
@@ -42,6 +43,8 @@ namespace _63CNTT5_N1.Areas.Admin.Controllers
         //GET: Admin/Category/Create
         public ActionResult Create()
         {
+            ViewBag.ListCat = new SelectList(categoriesDAO.getList("Index"),"Id","Name");
+            ViewBag.ListOrder = new SelectList(categoriesDAO.getList("Index"), "Order", "Name");
             return View();
         }
 
@@ -51,11 +54,33 @@ namespace _63CNTT5_N1.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                //xu ly tu dong: CreateAt
+                categories.CreateAt = DateTime.Now;
+                //xu ly tu dong: UpdateAt
+                categories.UpdateAt = DateTime.Now;
+                //xu ly tu dong: ParentId
+                if (categories.ParentID == null)
+                {
+                    categories.ParentID = 0;
+                }
+                //xu ly tu dong: Order
+                if (categories.Order == null)
+                {
+                    categories.Order = 1;
+                }
+                else
+                {
+                    categories.Order += 1;
+                }
+                //xu ly tu dong: Slug
+                categories.Slug = XString.Str_Slug(categories.Name);
+
+                //chen them dong cho data base
                 categoriesDAO.Insert(categories);
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
+            return View(categories);
         }
         ////EDIT
         //// GET: Admin/Category/Edit/5
@@ -109,6 +134,32 @@ namespace _63CNTT5_N1.Areas.Admin.Controllers
             categoriesDAO.Delete(categories);
             
             return RedirectToAction("Index");
+        }
+        ////DELETE
+        //// GET: Admin/Category/Status/5
+        public ActionResult Status(int? id)
+        {
+            if (id == null)
+            {
+                //thong bao that bai 
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                //truy van Id
+                Categories categories = categoriesDAO.getRow(id);
+                //chuyển đổi trang thái của status tu 1<->2
+                categories.Status = (categories.Status == 1) ? 2 : 1;
+                //cap nhat gia tri UpdateAt 
+                categories.UpdateAt = DateTime.Now;
+                //cap nhat lai database
+                categoriesDAO.Update(categories);
+                //thong bao cap nhat trang thai thanh cong
+                TempData["message"] = TempData["message"] = new XMessage("success", "Cập nhật trạng thái thành công");
+                return RedirectToAction("Index");
+            }
+            
         }
     }
 }
