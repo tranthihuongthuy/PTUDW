@@ -1,0 +1,154 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+                @*Trang chủ*@
+                <li class="nav-item active"><a class="nav-link" href="index.html">TRANG CHỦ</a></li>
+
+                @*Loại hàng*@
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">LOẠI HÀNG</a>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeMenu == "category")
+                            {
+                                <li class="nav-item"><a class="nav-link text-uppercase" href="@item.Link">@item.Name</a></li>
+                            }
+                        }
+                    </ul>
+                </li>
+
+                @*Nhà cung cấp*@
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">NHÀ CUNG CẤP</a>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeMenu == "supplier")
+                            {
+                                <li class="nav-item"><a class="nav-link text-uppercase" href="@item.Link">@item.Name</a></li>
+                            }
+                        }
+                    </ul>
+                </li>
+
+                @*Sản phẩm*@
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">SẢN PHẨM</a>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeMenu == "product")
+                            {
+                                <li class="nav-item"><a class="nav-link text-uppercase" href="@item.Link">@item.Name</a></li>
+                            }
+                        }
+                    </ul>
+                </li>
+
+                @*Tùy chọn*@
+                @foreach (var item in Model)
+                {
+                    if (item.TypeMenu == "custom")
+                    {
+                        <li class="nav-item"><a class="nav-link text-uppercase" href="@item.Link">@item.Name</a></li>
+                    }
+                }
+            </ul>
+
+            <ul class="nav-shop">
+                <li class="nav-item" id="searchItem"><button><i class="ti-search"></i></button></li>
+                <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+                <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+            </ul>
+
+            <!-- Thêm phần tử tìm kiếm -->
+            <div id="searchBox">
+                <input type="text" placeholder="Enter your search...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+
+            <script>
+                // Đặt mã JavaScript cuối trang hoặc sau khi toàn bộ trang đã được tải
+                document.getElementById('searchItem').addEventListener('click', function () {
+                    // Hiển thị khung tìm kiếm khi người dùng nhấp vào biểu tượng tìm kiếm
+                    var searchBox = document.getElementById('searchBox');
+                    var searchItem = document.getElementById('searchItem');
+
+                    // Lấy vị trí của nút tìm kiếm
+                    var rect = searchItem.getBoundingClientRect();
+
+                    // Đặt vị trí của khung tìm kiếm dựa trên vị trí của nút tìm kiếm
+                    searchBox.style.top = rect.bottom + 'px';
+                    searchBox.style.left = rect.left + 'px';
+
+                    // Ẩn biểu tượng tìm kiếm
+                    searchItem.style.display = 'none';
+
+                    // Hiển thị khung tìm kiếm
+                    searchBox.style.display = 'block';
+                });
+
+                // Hàm thực hiện tìm kiếm
+                function performSearch() {
+                    // Thêm logic xử lý cho tìm kiếm ở đây
+                    searchResult.innerHTML = 'Kết quả tìm kiếm cho: ' + searchTerm;
+
+                    // Ẩn khung tìm kiếm
+                    searchBox.style.display = 'none';
+
+                    // Hiển thị lại biểu tượng tìm kiếm
+                    searchItem.style.display = 'block';
+
+                }
+                searchInput.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            </script>
+            <style>
+                /* CSS để ẩn khung tìm kiếm ban đầu */
+                #searchBox {
+                    display: none;
+                    background-color: #fff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+
+                    #searchBox input {
+                        padding: 10px;
+                        border: none;
+                        border-radius: 5px;
+                        outline: none;
+                    }
+
+                    #searchBox button {
+                        padding: 10px;
+                        background-color: #3498db;
+                        color: #fff;
+                        border: none;
+                        border-radius: 0 5px 5px 0;
+                        cursor: pointer;
+                    }
+
+                        #searchBox button:hover {
+                            background-color: #2980b9;
+                        }
+            </style>
+        </div>
+    </div>
+</nav>
+

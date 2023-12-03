@@ -129,6 +129,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,9 +211,6 @@
     <Content Include="Public\dist\js\pages\dashboard3.js" />
     <Content Include="Public\img\blog\add.jpg" />
     <Content Include="Public\img\blog\author.png" />
-    <Content Include="Public\img\blog\blog1.png" />
-    <Content Include="Public\img\blog\blog2.png" />
-    <Content Include="Public\img\blog\blog3.png" />
     <Content Include="Public\img\blog\c1.jpg" />
     <Content Include="Public\img\blog\c2.jpg" />
     <Content Include="Public\img\blog\c3.jpg" />
@@ -223,6 +224,7 @@
     <Content Include="Public\img\blog\causes\causes-2.jpg" />
     <Content Include="Public\img\blog\causes\causes-3.jpg" />
     <Content Include="Public\img\blog\feature-img1.jpg" />
+    <Content Include="Public\img\blog\itaewon-class.jpg" />
     <Content Include="Public\img\blog\latest-post\l-post-1.jpg" />
     <Content Include="Public\img\blog\latest-post\l-post-2.jpg" />
     <Content Include="Public\img\blog\latest-post\l-post-3.jpg" />
@@ -240,6 +242,8 @@
     <Content Include="Public\img\blog\post-img1.jpg" />
     <Content Include="Public\img\blog\post-img2.jpg" />
     <Content Include="Public\img\blog\prev.jpg" />
+    <Content Include="Public\img\blog\trantinhlenh.png" />
+    <Content Include="Public\img\blog\truongnguyettanminhphim.jpg" />
     <Content Include="Public\img\cart.jpg" />
     <Content Include="Public\img\cart\cart1.png" />
     <Content Include="Public\img\cart\cart2.png" />
@@ -257,10 +261,11 @@
     <Content Include="Public\img\gallery\r5.jpg" />
     <Content Include="Public\img\gallery\r7.jpg" />
     <Content Include="Public\img\gallery\r8.jpg" />
+    <Content Include="Public\img\gallery\thienquantuphuc.jpg" />
+    <Content Include="Public\img\home\harrypotter.jpg" />
     <Content Include="Public\img\home\hero-banner.png" />
-    <Content Include="Public\img\home\hero-slide1.png" />
-    <Content Include="Public\img\home\hero-slide2.png" />
-    <Content Include="Public\img\home\hero-slide3.png" />
+    <Content Include="Public\img\home\hoang-tu-be.jpg" />
+    <Content Include="Public\img\home\luoc-su-loai-nguoi.jpg" />
     <Content Include="Public\img\home\parallax-bg.png" />
     <Content Include="Public\img\instagram\Image-01.jpg" />
     <Content Include="Public\img\instagram\Image-02.jpg" />
@@ -278,27 +283,22 @@
     <Content Include="Public\img\instagram\ins-6.jpg" />
     <Content Include="Public\img\login.jpg" />
     <Content Include="Public\img\logo.png" />
+    <Content Include="Public\img\product\7vienngocrong.jpg" />
+    <Content Include="Public\img\product\acnukhiyeu.jpg" />
     <Content Include="Public\img\product\card.jpg" />
-    <Content Include="Public\img\product\product-sm-1.png" />
-    <Content Include="Public\img\product\product-sm-2.png" />
-    <Content Include="Public\img\product\product-sm-3.png" />
-    <Content Include="Public\img\product\product-sm-4.png" />
-    <Content Include="Public\img\product\product-sm-5.png" />
-    <Content Include="Public\img\product\product-sm-6.png" />
-    <Content Include="Public\img\product\product-sm-7.png" />
-    <Content Include="Public\img\product\product-sm-8.png" />
-    <Content Include="Public\img\product\product-sm-9.png" />
-    <Content Include="Public\img\product\product1.png" />
-    <Content Include="Public\img\product\product2.png" />
-    <Content Include="Public\img\product\product3.png" />
-    <Content Include="Public\img\product\product4.png" />
-    <Content Include="Public\img\product\product5.png" />
-    <Content Include="Public\img\product\product6.png" />
-    <Content Include="Public\img\product\product7.png" />
-    <Content Include="Public\img\product\product8.png" />
+    <Content Include="Public\img\product\dao_tinh1.jpg" />
+    <Content Include="Public\img\product\dong_cung.jpg" />
+    <Content Include="Public\img\product\ma_dao_to_su.jpg" />
+    <Content Include="Public\img\product\no-em-mot-doi-hanh-phuc.jpg" />
+    <Content Include="Public\img\product\onepiece.jpg" />
     <Content Include="Public\img\product\review-1.png" />
     <Content Include="Public\img\product\review-2.png" />
     <Content Include="Public\img\product\review-3.png" />
+    <Content Include="Public\img\product\tam-sinh-tam-the-cham-thuong-thu.jpg" />
+    <Content Include="Public\img\product\thanhguomdietquy.jpg" />
+    <Content Include="Public\img\product\thienquantuphuc.jpg" />
+    <Content Include="Public\img\product\thuong-tien-tuu.jpg" />
+    <Content Include="Public\img\product\truongnguyettanminh.jpg" />
     <Content Include="Public\img\r1.jpg" />
     <Content Include="Public\img\r10.jpg" />
     <Content Include="Public\img\r11.jpg" />
@@ -311,6 +311,8 @@
     <Content Include="Public\img\r7.jpg" />
     <Content Include="Public\img\r8.jpg" />
     <Content Include="Public\img\r9.jpg" />
+    <Content Include="Public\img\supplier\channels4_profile.jpg" />
+    <Content Include="Public\img\supplier\images.jpg" />
     <Content Include="Public\js\jquery.dataTables.min.js" />
     <Content Include="Public\js\main.js" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
@@ -2661,6 +2663,23 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2686,6 +2705,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_LayoutSite.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Module\MainMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
